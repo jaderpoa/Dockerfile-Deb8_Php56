@@ -10,7 +10,7 @@ ENV OS_LOCALE="en_US.UTF-8"
 
 RUN \
     apt-get update && apt-get upgrade -y \
-    && apt-get install -y locales \
+    && apt-get install -y --no-install-recommends --no-install-suggests locales \
     && sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
     && locale-gen
 
@@ -21,7 +21,7 @@ ENV LANG=${OS_LOCALE} \
 
 RUN \
     dpkg-reconfigure --frontend=noninteractive locales \
-    && apt-get install -y curl \
+    && apt-get install -y --no-install-recommends --no-install-suggests curl \
       apache2 \
       libapache2-mod-php5 \
       php5 \
