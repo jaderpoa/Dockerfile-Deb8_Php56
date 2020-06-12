@@ -42,4 +42,5 @@ RUN \
     && a2enmod rewrite php5 \
     && apt-get autoremove -y \
     && apt-get clean
-
+ 
+COPY ports.conf /etc/apache2/ports.conf
